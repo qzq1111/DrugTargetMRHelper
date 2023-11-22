@@ -44,7 +44,7 @@ install_dtmr <- function() {
     tryCatch(detach("package:DrugTargetMR", unload = TRUE))
   }
 
-  url <- "http://r-package.qinzhiqiang.xyz/DrugTargetMR.zip"
+  url <- "http://r-package.qinzhiqiang.xyz/DrugTargetMR/DrugTargetMR.zip"
   name <- "DrugTargetMR.zip"
 
   if(file.exists(name)){
