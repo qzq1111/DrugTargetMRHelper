@@ -7,7 +7,7 @@ install_dtmr <- function() {
   # 普通包安装
   packages <- c("usethis", "devtools", "remotes","BiocManager", "httr", "jsonlite",
                 "ggplot2", "data.table", "ggpubr","forestplot","metafor","openxlsx",
-                "rvest","stringr","survival","survmine")
+                "rvest","stringr","survival","survminer")
 
   for (i in 1:length(packages)) {
     if (!packages[i] %in% installed.packages()[,"Package"]) {
