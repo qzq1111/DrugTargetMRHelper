@@ -20,8 +20,6 @@ install_dtmr <- function() {
   # bico包安装
   packages<-c("BSgenome","DESeq2","GEOquery",
               "GenomicRanges","MungeSumstats","RColorBrewer",
-              "SNPlocs.Hsapiens.dbSNP144.GRCh37",
-              "SNPlocs.Hsapiens.dbSNP144.GRCh38",
               "TeachingDemos","clusterProfiler",
               "edgeR","limma","survminer"
               )
