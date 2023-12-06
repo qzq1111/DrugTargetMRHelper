@@ -7,7 +7,7 @@ install_dtmr <- function() {
   # 普通包安装
   packages <- c("usethis", "devtools", "remotes","BiocManager", "httr", "jsonlite",
                 "ggplot2", "data.table", "ggpubr","forestplot","metafor","openxlsx",
-                "rvest","stringr","survival","survminer")
+                "rvest","stringr","survival","survminer","coloc")
 
   for (i in 1:length(packages)) {
     if (!packages[i] %in% installed.packages()[,"Package"]) {
@@ -18,11 +18,7 @@ install_dtmr <- function() {
   # 安装慢解决
   options(BioC_mirror="https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
   # bico包安装
-  packages<-c("BSgenome","DESeq2","GEOquery",
-              "GenomicRanges","MungeSumstats","RColorBrewer",
-              "TeachingDemos","clusterProfiler",
-              "edgeR","limma","survminer"
-              )
+  packages<-c("DESeq2","TeachingDemos","edgeR","limma" )
 
   for (i in 1:length(packages)) {
     if (!packages[i] %in% installed.packages()[,"Package"]) {
@@ -34,6 +30,11 @@ install_dtmr <- function() {
   if (!"TwoSampleMR" %in% installed.packages()[,"Package"]) {
     devtools::install_github("MRCIEU/TwoSampleMR", quiet=T)
   }
+
+  if (!"ieugwasr" %in% installed.packages()[,"Package"]) {
+    devtools::install_github("mrcieu/ieugwasr", quiet=T)
+  }
+
 
   if (!"plinkbinr" %in% installed.packages()[,"Package"]) {
     devtools::install_github("explodecomputer/plinkbinr", quiet=T)
