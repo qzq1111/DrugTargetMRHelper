@@ -5,6 +5,8 @@
 1. 安装DrugTargetMRHelper包
 
 ```
+install.packages("devtools")
+
 devtools::install_github("qzq1111/DrugTargetMRHelper")
 ```
 
