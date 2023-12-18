@@ -7,7 +7,7 @@ install_dtmr <- function() {
   # 普通包安装
   packages <- c("usethis", "devtools", "remotes","BiocManager", "httr", "jsonlite",
                 "ggplot2", "data.table", "ggpubr","forestplot","metafor","openxlsx",
-                "rvest","stringr","survival","survminer","coloc")
+                "rvest","stringr","survival","survminer","coloc","cli")
 
   for (i in 1:length(packages)) {
     if (!packages[i] %in% installed.packages()[,"Package"]) {
@@ -33,11 +33,6 @@ install_dtmr <- function() {
 
   if (!"ieugwasr" %in% installed.packages()[,"Package"]) {
     devtools::install_github("mrcieu/ieugwasr", quiet=T)
-  }
-
-
-  if (!"plinkbinr" %in% installed.packages()[,"Package"]) {
-    devtools::install_github("explodecomputer/plinkbinr", quiet=T)
   }
 
   # 安装DrugTargetMR

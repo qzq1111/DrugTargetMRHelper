@@ -27,3 +27,9 @@ DrugTargetMR::is_register()
 # 工作人员提供注册码，注册包
 DrugTargetMR::register("注册码")
 ```
+
+## 微信公众号
+
+关注微信公众号：`秦吕的旅行日记`
+
+![微信公众号](./img/qinlv2013.png)
