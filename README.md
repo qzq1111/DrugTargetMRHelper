@@ -7,6 +7,8 @@
 ```
 install.packages("devtools")
 
+tryCatch(detach("package:DrugTargetMRHelper", unload = TRUE))
+
 devtools::install_github("qzq1111/DrugTargetMRHelper")
 ```
 
