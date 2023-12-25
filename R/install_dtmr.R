@@ -4,7 +4,7 @@
 #'
 #' @examples install_dtmr()
 install_dtmr <- function() {
- 
+
   # 安装依赖
   install_dep()
 
@@ -13,8 +13,16 @@ install_dtmr <- function() {
     tryCatch(detach("package:DrugTargetMR", unload = TRUE))
   }
 
-  url <- "http://r-package.qinzhiqiang.xyz/DrugTargetMR/DrugTargetMR.zip"
-  name <- "DrugTargetMR.zip"
+  os <-  stringr::str_to_lower(Sys.info()['sysname'])
+  if (os == "windows") {
+    url <- "http://r-package.qinzhiqiang.xyz/DrugTargetMR/DrugTargetMR.zip"
+    name <- "DrugTargetMR.zip"
+
+  }else{
+    url <- "http://r-package.qinzhiqiang.xyz/DrugTargetMR/DrugTargetMR.tar.gz"
+    name <- "DrugTargetMR.tar.gz"
+  }
+
 
   if(file.exists(name)){
     file.remove(name)
