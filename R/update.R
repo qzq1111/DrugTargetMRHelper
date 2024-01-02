@@ -44,6 +44,10 @@ install_dtmr_dep <- function() {
   if (!"ieugwasr" %in% installed.packages()[, "Package"]) {
     devtools::install_github("mrcieu/ieugwasr", quiet = T)
   }
+
+  if (!"gassocplot2" %in% installed.packages()[, "Package"]) {
+    devtools::install_github("jrs95/gassocplot2", quiet = T)
+  }
 }
 
 
