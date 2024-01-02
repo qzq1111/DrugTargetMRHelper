@@ -16,7 +16,10 @@ install_dtmr_dep <- function() {
     "survival",
     "survminer",
     "coloc",
-    "cli"
+    "cli",
+    "RMySQL",
+    "cowplot",
+    "ggrepel"
   )
 
   for (i in 1:length(packages)) {
