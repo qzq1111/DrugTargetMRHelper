@@ -29,9 +29,12 @@ install_dtmr_dep <- function() {
   }
 
   # bico包安装
-  packages <- c("DESeq2", "TeachingDemos",
-                "edgeR", "limma",
-                "rtracklayer","GenomicRanges")
+  packages <- c("DESeq2",
+                "TeachingDemos",
+                "edgeR",
+                "limma",
+                "rtracklayer",
+                "GenomicRanges")
 
   for (i in 1:length(packages)) {
     if (!packages[i] %in% installed.packages()[, "Package"]) {
@@ -40,23 +43,67 @@ install_dtmr_dep <- function() {
   }
 
   # github包安装
-  if (!"TwoSampleMR" %in% installed.packages()[, "Package"]) {
-    devtools::install_github("MRCIEU/TwoSampleMR", quiet = T)
+  install_github_dep(pkg_name = "TwoSampleMR", github_pkg_name = "MRCIEU/TwoSampleMR")
+  install_github_dep(pkg_name = "ieugwasr", github_pkg_name = "mrcieu/ieugwasr")
+  install_github_dep(pkg_name = "gassocplot2", github_pkg_name = "jrs95/gassocplot2")
+  # if (!"TwoSampleMR" %in% installed.packages()[, "Package"]) {
+  #   devtools::install_github("MRCIEU/TwoSampleMR", quiet = T)
+  # }
+
+
+  # if (!"ieugwasr" %in% installed.packages()[, "Package"]) {
+  #   devtools::install_github("mrcieu/ieugwasr", quiet = T)
+  # }
+
+  # if (!"gassocplot2" %in% installed.packages()[, "Package"]) {
+  #   devtools::install_github("jrs95/gassocplot2", quiet = T)
+  # }
+
+
+}
+
+# 安装github依赖包
+install_github_dep <- function(pkg_name, github_pkg_name) {
+  if (!pkg_name %in% installed.packages()[, "Package"]) {
+    devtools::install_github(github_pkg_name, quiet = T)
   }
 
-  if (!"ieugwasr" %in% installed.packages()[, "Package"]) {
-    devtools::install_github("mrcieu/ieugwasr", quiet = T)
+  # 检查是否安装成功
+  if (pkg_name %in% installed.packages()[, "Package"]) {
+    return()
   }
 
-  if (!"gassocplot2" %in% installed.packages()[, "Package"]) {
-    devtools::install_github("jrs95/gassocplot2", quiet = T)
+  # 如果未安装成功，安装本地二进制包
+  tmp <- tempdir()
+  os <-  stringr::str_to_lower(Sys.info()['sysname'])
+  # 根据不同系统安装不同包
+  if (os == "windows") {
+    url <-
+      sprintf("http://r-package.qinzhiqiang.xyz/DrugTargetMR/dep/%s.zip",
+              pkg_name)
+    name <- paste0(tmp, sprintf("/%s.zip", pkg_name))
+
+  } else{
+    url <-
+      sprintf("http://r-package.qinzhiqiang.xyz/DrugTargetMR/dep/%s.tar.gz",
+              pkg_name)
+    name <- paste0(tmp, sprintf("/%s.tar.gz", pkg_name))
   }
+  # 删除已有文件
+  if (file.exists(name)) {
+    file.remove(name)
+  }
+
+  options(timeout = 6000)
+  # 下载文件
+  download.file(url, name)
+  # 安装文件
+  install.packages(name, repos = NULL)
 }
 
 
 # 安装DrugTargetMR
 install_dtmr_package <- function() {
-
   # 安装依赖
   install_dtmr_dep()
 
@@ -64,16 +111,18 @@ install_dtmr_package <- function() {
 
   os <-  stringr::str_to_lower(Sys.info()['sysname'])
   if (os == "windows") {
-    url <- "http://r-package.qinzhiqiang.xyz/DrugTargetMR/DrugTargetMR.zip"
-    name <- paste0(tmp,"/DrugTargetMR.zip")
+    url <-
+      "http://r-package.qinzhiqiang.xyz/DrugTargetMR/DrugTargetMR.zip"
+    name <- paste0(tmp, "/DrugTargetMR.zip")
 
-  }else{
-    url <- "http://r-package.qinzhiqiang.xyz/DrugTargetMR/DrugTargetMR.tar.gz"
-    name <- paste0(tmp,"/DrugTargetMR.tar.gz")
+  } else{
+    url <-
+      "http://r-package.qinzhiqiang.xyz/DrugTargetMR/DrugTargetMR.tar.gz"
+    name <- paste0(tmp, "/DrugTargetMR.tar.gz")
   }
 
 
-  if(file.exists(name)){
+  if (file.exists(name)) {
     file.remove(name)
   }
 
@@ -89,9 +138,9 @@ install_dtmr_package <- function() {
   install.packages(name, repos = NULL)
 
 
-  if("DrugTargetMR" %in% installed.packages()[,"Package"]){
+  if ("DrugTargetMR" %in% installed.packages()[, "Package"]) {
     message("下载并安装成功")
-  }else{
+  } else{
     message("下载失败")
     message("打开链接下载安装 ")
     message(url)
