@@ -65,7 +65,7 @@ install_dtmr_dep <- function() {
 # 安装github依赖包
 install_github_dep <- function(pkg_name, github_pkg_name) {
   if (!pkg_name %in% installed.packages()[, "Package"]) {
-    devtools::install_github(github_pkg_name, quiet = T)
+    rsp <- try(devtools::install_github(github_pkg_name, quiet = T))
   }
 
   # 检查是否安装成功
