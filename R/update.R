@@ -17,7 +17,6 @@ install_dtmr_dep <- function() {
     "survminer",
     "coloc",
     "cli",
-    "RMySQL",
     "cowplot",
     "ggrepel"
   )
@@ -46,20 +45,7 @@ install_dtmr_dep <- function() {
   install_github_dep(pkg_name = "TwoSampleMR", github_pkg_name = "MRCIEU/TwoSampleMR")
   install_github_dep(pkg_name = "ieugwasr", github_pkg_name = "mrcieu/ieugwasr")
   install_github_dep(pkg_name = "gassocplot2", github_pkg_name = "jrs95/gassocplot2")
-  # if (!"TwoSampleMR" %in% installed.packages()[, "Package"]) {
-  #   devtools::install_github("MRCIEU/TwoSampleMR", quiet = T)
-  # }
-
-
-  # if (!"ieugwasr" %in% installed.packages()[, "Package"]) {
-  #   devtools::install_github("mrcieu/ieugwasr", quiet = T)
-  # }
-
-  # if (!"gassocplot2" %in% installed.packages()[, "Package"]) {
-  #   devtools::install_github("jrs95/gassocplot2", quiet = T)
-  # }
-
-
+  install_github_dep(pkg_name = "ldscr", github_pkg_name = "mglev1n/ldscr")
 }
 
 # 安装github依赖包
