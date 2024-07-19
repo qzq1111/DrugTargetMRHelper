@@ -18,7 +18,13 @@ install_dtmr_dep <- function() {
     "coloc",
     "cli",
     "cowplot",
-    "ggrepel"
+    "ggrepel",
+    "genio",
+    "GBJ",
+    "RSQLite",
+    "corrplot",
+    "gdata",
+    "R.devices"
   )
 
   for (i in 1:length(packages)) {
