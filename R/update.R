@@ -24,7 +24,9 @@ install_dtmr_dep <- function() {
     "RSQLite",
     "corrplot",
     "gdata",
-    "R.devices"
+    "R.devices",
+    "doParallel",
+    "foreach"
   )
 
   for (i in 1:length(packages)) {
