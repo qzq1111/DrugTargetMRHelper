@@ -26,7 +26,11 @@ install_dtmr_dep <- function() {
     "gdata",
     "R.devices",
     "doParallel",
-    "foreach"
+    "foreach",
+    "RColorBrewer",
+    "einsum",
+    "tidyr",
+    "tidyverse"
   )
 
   for (i in 1:length(packages)) {
