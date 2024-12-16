@@ -25,8 +25,7 @@ install_dtmr_dep <- function() {
     "corrplot",
     "gdata",
     "R.devices",
-    "doParallel",
-    "foreach",
+    "future.apply",
     "RColorBrewer",
     "einsum",
     "tidyr",
@@ -58,6 +57,7 @@ install_dtmr_dep <- function() {
   install_github_dep(pkg_name = "ieugwasr", github_pkg_name = "mrcieu/ieugwasr")
   install_github_dep(pkg_name = "geni.plots", github_pkg_name = "jrs95/geni.plots")
   install_github_dep(pkg_name = "ldscr", github_pkg_name = "mglev1n/ldscr")
+  install_github_dep(pkg_name = "hyprcoloc", github_pkg_name = "jrs95/hyprcoloc")
 }
 
 # 安装github依赖包
